@@ -1,0 +1,25 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+cache: apt
+
+before_install:
+  - curl -sSL https://get.docker.com/ | sh
+  - sudo restart docker
+  - sudo docker info
+  - make setup
+
+before_script:
+  - cd $TRAVIS_BUILD_DIR
+  - make info
+
+script: make run
+
+after_success: make check
+
+notifications:
+  email: false

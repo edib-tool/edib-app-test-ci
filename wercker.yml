@@ -1,0 +1,45 @@
+box: jpetazzo/dind
+
+build:
+
+  steps:
+    - script:
+        name: Init
+        code: |
+          echo I am: `whoami`
+          echo ENV: `env`
+    - script:
+        name: Pre-Setup
+        code: |
+          apt-get update -qq
+          apt-get install -qq -y git make sudo wget curl
+    # - script:
+    #     name: Install docker
+    #     code: |
+    #       curl -sSL https://get.docker.com/ | sh
+    #       usermod -aG docker `whoami`
+    #       usermod -aG sudo `whoami`
+    - script:
+        name: Test docker
+        code: |
+          docker -v
+          docker --help
+          service docker restart
+          ls -ahlF /var/run/
+          docker version
+          docker info
+          docker run --rm hello-world
+    - script:
+        name: Setup
+        code: make setup
+    - script:
+        name: Information
+        code: make info
+    - script:
+        name: Run
+        code: make run
+
+  after-steps:
+    - script:
+        name: Check
+        code: make check

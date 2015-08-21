@@ -1,0 +1,29 @@
+# DISABLED!
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/.hex/packages"
+  pre:
+    - mkdir -p $HOME/tmp && cd $HOME/tmp
+    - wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+    - sudo apt-get update
+    - sudo apt-get install -y elixir
+  override:
+    - mix local.hex --force
+    - mix local.rebar --force
+    - git clone https://github.com/asaaki/mix-edip.git && cd mix-edip && git checkout test/circleci && mix deps.get && mix compile && mix archive.build && mix archive.install --force
+    - mix local
+  post:
+    - docker pull asaaki/edip-tool:0.4.3
+
+test:
+  pre:
+    - docker version
+    - cd $HOME/$CIRCLE_PROJECT_REPONAME
+    - ls -ahlF
+  override:
+    - mix edip --prefix circleci
