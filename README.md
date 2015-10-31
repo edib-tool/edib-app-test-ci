@@ -14,9 +14,10 @@ Elixir Docker Image Packager test setup for different CI services
 
 ### Notes
 
-- `docker run`: definitely needs `--privileged`!
-- `--rm` seems to be okay to use (tested in `make check` target).
+- `--rm` seems to be okay to use.
 - Must install Elixir via Ubuntu package (`language: elixir` does not work).
+- Use `language: ruby` instead.
+- Also do not forget to set `sudo: required`, because we install OS packages.
 
 See: <http://docs.travis-ci.com/user/docker/>
 
@@ -30,6 +31,7 @@ See: <http://docs.travis-ci.com/user/docker/>
 - Something in the container _segfaults_, no idea what and why (and not interest in figuring out, because it's no fun).
 - `--privileged` does not have any effect.
 - It runs a pretty old and custom docker version (_1.6.2-circleci_).
+- Also a newer version (1.8.3) does not help.
 
 See: <https://circleci.com/docs/docker>
 
