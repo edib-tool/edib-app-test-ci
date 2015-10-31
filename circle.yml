@@ -29,4 +29,4 @@ test:
     - cd $HOME/$CIRCLE_PROJECT_REPONAME
     - ls -ahlF
   override:
-    - mix edib --prefix circleci
+    - mix edib --no-rm --prefix circleci
