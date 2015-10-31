@@ -8,15 +8,9 @@ setup:
 		sudo dpkg -i erlang-solutions_1.0_all.deb  && \
 		sudo apt-get update -qq && sudo apt-get install -y elixir && \
 		mix local.hex --force && mix local.rebar --force && \
-		git clone https://github.com/asaaki/mix-edip.git && \
-			cd mix-edip && \
-			git checkout test/circleci && \
-			mix deps.get && \
-			mix compile && \
-			mix archive.build && \
-			mix archive.install --force
+		mix archive.install --force http://git.io/edib-0.5.0.ez
 	mix local
-	docker pull asaaki/edip-tool:0.4.3
+	docker pull edib/edib-tool:1.0
 
 info:
 	@docker version
@@ -25,7 +19,7 @@ info:
 	@find $(shell pwd) -type f -not -path '*/\.git*'
 
 run:
-	mix edip --prefix ci-build
+	mix edib --prefix ci-build
 
 check:
 	@(docker run --rm ci-build/edib_app_test_ci /bin/echo "Hello from container.") || true

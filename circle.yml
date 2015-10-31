@@ -15,10 +15,10 @@ dependencies:
   override:
     - mix local.hex --force
     - mix local.rebar --force
-    - git clone https://github.com/asaaki/mix-edip.git && cd mix-edip && git checkout test/circleci && mix deps.get && mix compile && mix archive.build && mix archive.install --force
+    - mix archive.install --force http://git.io/edib-0.5.0.ez
     - mix local
   post:
-    - docker pull asaaki/edip-tool:0.4.3
+    - docker pull edib/edib-tool:1.0
 
 test:
   pre:
@@ -26,4 +26,4 @@ test:
     - cd $HOME/$CIRCLE_PROJECT_REPONAME
     - ls -ahlF
   override:
-    - mix edip --prefix circleci
+    - mix edib --prefix circleci
