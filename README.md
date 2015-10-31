@@ -1,16 +1,16 @@
-# EDIP packaging test
+# EDIB packaging test
 
 Elixir Docker Image Packager test setup for different CI services
 
 ## Links
 
-- [About EDIP](https://github.com/asaaki/elixir-docker-image-packager)
-- [mix-edip](https://github.com/asaaki/mix-edip)
-- [EDIP tool (docker image)](https://github.com/asaaki/docker-images/tree/master/dockerfiles/edip-tool/0.4.3)
+- [About EDIB](https://github.com/edib-tool/elixir-docker-image-packager)
+- [mix-edib](https://github.com/edib-tool/mix-edib)
+- [EDIB tool (docker image)](https://github.com/edib-tool/docker-edib-tool)
 
 ----
 
-## Travis CI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) [![Build Status](https://img.shields.io/travis/asaaki/edip-app-test-ci.svg?style=flat-square)](https://travis-ci.org/asaaki/edip-app-test-ci) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
+## Travis CI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) [![Build Status](https://img.shields.io/travis/edib-tool/edib-app-test-ci.svg?style=flat-square)](https://travis-ci.org/edib/edib-app-test-ci) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
 
 ### Notes
 
