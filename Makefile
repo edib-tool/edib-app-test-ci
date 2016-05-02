@@ -8,9 +8,11 @@ setup:
 		sudo dpkg -i erlang-solutions_1.0_all.deb  && \
 		sudo apt-get update -qq && sudo apt-get install -y elixir && \
 		mix local.hex --force && mix local.rebar --force && \
-		mix archive.install --force http://git.io/edib-0.5.1.ez
+		git clone https://github.com/edib-tool/mix-edib.git && \
+		cd mix-edib && mix deps.get && mix compile && mix archive.build && \
+		mix archive.install
 	mix local
-	docker pull edib/edib-tool:1.1
+	docker pull edib/edib-tool:1.2.1
 
 info:
 	@docker version
