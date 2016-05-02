@@ -10,7 +10,7 @@ setup:
 		mix local.hex --force && mix local.rebar --force && \
 		git clone https://github.com/edib-tool/mix-edib.git && \
 		cd mix-edib && mix deps.get && mix compile && mix archive.build && \
-		mix archive.install
+		mix archive.install --force
 	mix local
 	docker pull edib/edib-tool:1.2.1
 
