@@ -1,0 +1,6 @@
+-sname edib_app_test_ci
+-setcookie edib_app_test_ci_cookie
++K true
++A 64
++P 524288
++Bd

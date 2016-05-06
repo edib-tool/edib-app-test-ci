@@ -1,6 +1,6 @@
 /_build
 /deps
 /tarballs
-/rel
+/rel/edib_app_test_ci
 erl_crash.dump
 *.ez
