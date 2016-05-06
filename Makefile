@@ -25,7 +25,4 @@ run:
 
 check:
 	@(docker run --rm ci-build/edib_app_test_ci /bin/echo "Hello from container.") || true
-	@(docker run --rm ci-build/edib_app_test_ci /app/bin/edib_app_test_ci ping) || true
-	@echo "If the message says something like ..."
-	@echo "  \"Node <node@ip> not responding to pings.\""
-	@echo "then this is indeed very good, because the container and Erlang were started correctly!"
+	@(docker run --rm ci-build/edib_app_test_ci /app/bin/edib_app_test_ci command Elixir.EdibAppTestCi hello) || true
