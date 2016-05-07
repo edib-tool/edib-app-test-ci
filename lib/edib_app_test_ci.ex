@@ -1,6 +1,6 @@
 defmodule EdibAppTestCi do
   def hello do
     IO.puts "Hello from EDIB App Test CI!"
-    :init.halt
+    :init.stop(0)
   end
 end
