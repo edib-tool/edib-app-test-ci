@@ -23,15 +23,12 @@ See: <http://docs.travis-ci.com/user/docker/>
 
 ----
 
-## CircleCI ![status](https://img.shields.io/badge/docker-fail-red.svg?style=flat-square) ![happiness](https://img.shields.io/badge/happiness-meh-663300.svg?style=flat-square)
+## CircleCI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
 
 ### Notes
 
 - `docker run`: Never use `--rm`, it always fails.
-- Something in the container _segfaults_, no idea what and why (and not interest in figuring out, because it's no fun).
-- `--privileged` does not have any effect.
-- It runs a pretty old and custom docker version (_1.6.2-circleci_).
-- Also a newer version (1.8.3) does not help.
+- Only runs successful with Docker 1.10+
 
 See: <https://circleci.com/docs/docker>
 
