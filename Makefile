@@ -1,5 +1,17 @@
+MIX_EDIB_VER    = 0.7.0
+MIX_EDIB_URL    = https://git.io/edib-$(MIX_EDIB_VER).ez
+MIX_EDIB_CMD    = mix edib
+EDIB_TOOL_VER   = 1.3.0
+EDIB_TOOL       = edib/edib-tool:$(EDIB_TOOL_VER)
+D_PREFIX        = ci-build
+D_IMG_NAME      = edib_app_test_ci
+D_IMG_FNAME     = $(PREFIX)/$(D_IMG_NAME)
+BUILD_CMD       = $(MIX_EDIB_CMD) --prefix $(D_PREFIX) --strip
+ECHO_CMD        = /bin/echo "Hello from container."
+RUN_CMD         = /app/bin/$(D_IMG_NAME) command Elixir.EdibAppTestCi run
+
 all:
-	@echo Nope, you must specify a target.
+	@echo Nope, you must specify a target. (setup, info, run, check)
 
 setup:
 	mkdir -p $HOME/tmp && \
@@ -8,9 +20,9 @@ setup:
 		sudo dpkg -i erlang-solutions_1.0_all.deb  && \
 		sudo apt-get update -qq && sudo apt-get install -y elixir && \
 		mix local.hex --force && mix local.rebar --force && \
-		mix archive.install --force https://git.io/edib-0.6.1.ez
+		mix archive.install --force $(MIX_EDIB_URL)
 	mix local
-	docker pull edib/edib-tool:1.2.3
+	docker pull $(EDIB_TOOL)
 
 info:
 	@docker version
@@ -19,8 +31,12 @@ info:
 	@find $(shell pwd) -type f -not -path '*/\.git*'
 
 run:
-	mix edib --prefix ci-build
+	$(BUILD_CMD)
+
+run-circleci:
+	$(BUILD_CMD) --no-rm
 
 check:
-	@(docker run --rm ci-build/edib_app_test_ci /bin/echo "Hello from container.") || true
-	@(docker run --rm ci-build/edib_app_test_ci /app/bin/edib_app_test_ci command Elixir.EdibAppTestCi hello) || true
+	@docker images
+	@(docker run --rm $(D_IMG_FNAME) $(ECHO_CMD)) || true
+	@(docker run --rm $(D_IMG_FNAME) $(RUN_CMD)) || true
