@@ -23,7 +23,7 @@ See: <http://docs.travis-ci.com/user/docker/>
 
 ----
 
-## CircleCI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
+## CircleCI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) [![CircleCI](https://img.shields.io/circleci/project/edib-tool/edib-app-test-ci.svg?style=flat-square)](https://circleci.com/gh/edib-tool/edib-app-test-ci) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
 
 ### Notes
 
