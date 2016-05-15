@@ -28,7 +28,7 @@ See: <http://docs.travis-ci.com/user/docker/>
 ### Notes
 
 - `docker run`: Never use `--rm`, it always fails.
-- Only runs successful with Docker 1.10+
+- Only runs successfully with Docker 1.10+
 
 See: <https://circleci.com/docs/docker>
 
@@ -83,3 +83,4 @@ local/edib_app_test_ci   10.32 MB
 
 **WARNING:** Use `--zip` carefully, avoid zipping when using NIFs.
 (The compression benefit is small anyway.)
+
