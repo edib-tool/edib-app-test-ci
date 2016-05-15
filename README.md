@@ -62,3 +62,24 @@ See: <http://docs.shippable.com/docker_build/>
 Tell me which one to try.
 
 It **must** run docker, of course!
+
+----
+
+## Docker image sizes
+
+```
+REPOSITORY               SIZE
+# normal build (mix edib)
+local/edib_app_test_ci   18.44 MB
+# with strip (mix edib --strip)
+local/edib_app_test_ci   10.5 MB
+# with zip (mix edib --zip)
+local/edib_app_test_ci   15.53 MB
+# with strip and zip (mix edib --strip --zip)
+local/edib_app_test_ci   10.32 MB
+
+# some columns omitted
+```
+
+**WARNING:** Use `--zip` carefully, avoid zipping when using NIFs.
+(The compression benefit is small anyway.)
