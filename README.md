@@ -10,7 +10,7 @@ Elixir Docker Image Packager test setup for different CI services
 
 ----
 
-## Travis CI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) [![Build Status](https://img.shields.io/travis/edib-tool/edib-app-test-ci.svg?style=flat-square)](https://travis-ci.org/edib/edib-app-test-ci) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
+## Travis CI ![status](https://img.shields.io/badge/docker-ok-brightgreen.svg?style=flat-square) [![Build Status](https://img.shields.io/travis/edib-tool/edib-app-test-ci.svg?style=flat-square)](https://travis-ci.org/edib-tool/edib-app-test-ci) ![happiness](https://img.shields.io/badge/happiness-yay-33ccff.svg?style=flat-square)
 
 ### Notes
 
@@ -83,4 +83,3 @@ local/edib_app_test_ci   10.32 MB
 
 **WARNING:** Use `--zip` carefully, avoid zipping when using NIFs.
 (The compression benefit is small anyway.)
-
