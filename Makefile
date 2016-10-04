@@ -1,7 +1,7 @@
-MIX_EDIB_VER    = 0.8.3
+MIX_EDIB_VER    = 0.9.0
 MIX_EDIB_URL    = https://git.io/edib-$(MIX_EDIB_VER).ez
 MIX_EDIB_CMD    = mix edib
-EDIB_TOOL_VER   = 1.3.3
+EDIB_TOOL_VER   = 1.4.0
 EDIB_TOOL       = edib/edib-tool:$(EDIB_TOOL_VER)
 D_PREFIX        = ci-build
 D_IMG_NAME      = edib_app_test_ci
