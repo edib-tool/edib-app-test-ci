@@ -18,9 +18,9 @@ setup:
 	cd $HOME/tmp && \
 		wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && \
 		sudo dpkg -i erlang-solutions_1.0_all.deb  && \
-		sudo apt-get update -qq && sudo apt-get install -y elixir && \
-		mix local.hex --force && mix local.rebar --force && \
-		mix archive.install --force $(MIX_EDIB_URL)
+		sudo apt-get update -qq && sudo apt-get install -y elixir
+	mix local.hex --force && mix local.rebar --force
+	mix archive.install --force $(MIX_EDIB_URL)
 	mix local
 	docker pull $(EDIB_TOOL)
 
