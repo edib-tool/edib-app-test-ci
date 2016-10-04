@@ -4,7 +4,7 @@ defmodule EdipAppTestCi.Mixfile do
   def project do
     [app: :edib_app_test_ci,
      version: "0.3.0",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -22,7 +22,7 @@ defmodule EdipAppTestCi.Mixfile do
 
   defp deps do
     [
-      {:exrm, "~> 1.0"},
+      {:distillery, "~> 0.10"},
       {:cmark, "~> 0.6"},
       {:fnv, "~> 0.3"},
       {:ralitobu, "~> 0.1"},
