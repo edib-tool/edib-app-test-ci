@@ -36,7 +36,21 @@ run:
 run-circleci:
 	$(BUILD_CMD) --no-rm
 
-check:
+check: check-images check-echo check-run
+
+check-circleci: check-images check-echo-circleci check-run-circleci
+
+check-images:
 	@docker images
+
+check-echo:
 	@(docker run --rm $(D_IMG_FNAME) $(ECHO_CMD)) || true
+
+check-echo-circleci:
+	@(docker run $(D_IMG_FNAME) $(ECHO_CMD)) || true
+
+check-run:
 	@(docker run --rm $(D_IMG_FNAME) $(RUN_CMD)) || true
+
+check-run-circleci:
+	@(docker run $(D_IMG_FNAME) $(RUN_CMD)) || true

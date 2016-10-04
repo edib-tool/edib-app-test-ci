@@ -18,4 +18,4 @@ test:
   override:
     - make run-circleci
   post:
-    - make check
+    - make check-circleci
